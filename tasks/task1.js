@@ -1,10 +1,10 @@
 /* Task 1 */
-function summ() {
+function summ(...args) {
   // TODO: implement function
   let sum = 0;
-  for (let i = 0; i < arguments.length; i++) {
-    if (!isNaN(arguments[i])) {
-      sum += +arguments[i];
+  for (let i = 0; i < args.length; i += 1) {
+    if (!Number.isNaN(args[i])) {
+      sum += +args[i];
     }
   }
   return sum;
@@ -15,15 +15,6 @@ function summ() {
 summ(1, "2", "3", 5, "abc"); // => Number 11, 'abc' was ignored
 
 /* Task 2 */
-function summAdvanced() {
-  // TODO: implement function
-  // HINT: pseudo-array `arguments` should be used (https://learn.javascript.ru/arguments-pseudoarray)
-}
-
-// Expected result
-// If function(getTen, getTenString, getRandomNumber) was passed it should be called and its return value should be added to final result
-summAdvanced("abc", 1, "2", getTen, getTenString, getRandomNumber); // => 1 + 2 + 10 + 10 + randow value, 'abc' should be ignored. Result should have type Number
-
 function getRandomNumber() {
   return Math.random();
 }
@@ -35,6 +26,16 @@ function getTen() {
 function getTenString() {
   return "10";
 }
+function summAdvanced() {
+  // TODO: implement function
+  // HINT: pseudo-array `arguments` should be used (https://learn.javascript.ru/arguments-pseudoarray)
+}
+
+// Expected result
+// If function(getTen, getTenString, getRandomNumber) was passed it should be called
+// and its return value should be added to final result
+// => 1 + 2 + 10 + 10 + randow value, 'abc' should be ignored. Result should have type Number
+summAdvanced("abc", 1, "2", getTen, getTenString, getRandomNumber);
 
 /* Task 3 */
 function isValueExists(value) {
@@ -56,7 +57,7 @@ function callWithFunctionResult(funct1, funct2) {
 }
 
 // Expected result
-callWithFunctionResult(doubleValue, getFour); // => doubleValue was called with value returned by getFour, => 2 * 4 = 8
+// => doubleValue was called with value returned by getFour, => 2 * 4 = 8
 function doubleValue(value) {
   return value * 2;
 }
@@ -64,6 +65,7 @@ function doubleValue(value) {
 function getFour() {
   return 4;
 }
+callWithFunctionResult(doubleValue, getFour);
 
 /* Task 5 */
 function callWhileStringIsNotEmpty(string, func) {
