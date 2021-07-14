@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "add": "husky add",
+    "prettier": "prettier --write tasks/",
+    "eslint": "eslint --fix tasks/"
   },
   "repository": {
     "type": "git",
