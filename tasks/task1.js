@@ -1,6 +1,4 @@
-/* Task 1 */
 function summ(...args) {
-  // TODO: implement function
   let sum = 0;
   for (let i = 0; i < args.length; i += 1) {
     if (!Number.isNaN(args[i])) {
@@ -8,11 +6,9 @@ function summ(...args) {
     }
   }
   return sum;
-  // HINT: pseudo-array `arguments` should be used (https://learn.javascript.ru/arguments-pseudoarray)
 }
 
-// Expected result
-summ(1, "2", "3", 5, "abc"); // => Number 11, 'abc' was ignored
+summ(1, "2", "3", 5, "abc");
 
 /* Task 2 */
 function getRandomNumber() {
