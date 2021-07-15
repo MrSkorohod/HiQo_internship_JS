@@ -1,7 +1,8 @@
+/* Task 1 */
 function summ(...args) {
   let sum = 0;
   for (let i = 0; i < args.length; i += 1) {
-    if (!Number.isNaN(args[i])) {
+    if (!Number.isNaN(+args[i])) {
       sum += +args[i];
     }
   }
@@ -22,15 +23,19 @@ function getTen() {
 function getTenString() {
   return "10";
 }
-function summAdvanced() {
-  // TODO: implement function
-  // HINT: pseudo-array `arguments` should be used (https://learn.javascript.ru/arguments-pseudoarray)
+
+function summAdvanced(...args) {
+  let sum = 0;
+  for (let i = 0; i < args.length; i++) {
+    if (typeof args[i] === "function"){
+        sum += +args[i]();
+    }else if(!Number.isNaN(+args[i])){
+        sum += +args[i];
+    }
+  }
+  return sum;
 }
 
-// Expected result
-// If function(getTen, getTenString, getRandomNumber) was passed it should be called
-// and its return value should be added to final result
-// => 1 + 2 + 10 + 10 + randow value, 'abc' should be ignored. Result should have type Number
 summAdvanced("abc", 1, "2", getTen, getTenString, getRandomNumber);
 
 /* Task 3 */
