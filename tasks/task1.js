@@ -1,11 +1,11 @@
 /* Task 1 */
 function summ(...args) {
   let sum = 0;
-  for (let i = 0; i < args.length; i += 1) {
-    if (!Number.isNaN(+args[i])) {
-      sum += +args[i];
+  args.forEach((el) => {
+    if (!Number.isNaN(+el) && typeof el !== "boolean") {
+      sum += +el;
     }
-  }
+  });
   return sum;
 }
 
@@ -26,13 +26,13 @@ function getTenString() {
 
 function summAdvanced(...args) {
   let sum = 0;
-  for (let i = 0; i < args.length; i += 1) {
-    if (typeof args[i] === "function") {
-      sum += +args[i]();
-    } else if (!Number.isNaN(+args[i])) {
-      sum += +args[i];
+  args.forEach((el) => {
+    if (typeof el === "function" && +el()) {
+      sum += +el();
+    } else if (!Number.isNaN(+el) && typeof el !== "boolean") {
+      sum += +el;
     }
-  }
+  });
   return sum;
 }
 
@@ -40,7 +40,10 @@ summAdvanced("abc", 1, "2", getTen, getTenString, getRandomNumber);
 
 /* Task 3 */
 function isValueExists(value) {
-  // TODO: implement function
+  if (value === undefined || value === null) {
+    return false;
+  }
+  return true;
 }
 
 // Expected result
@@ -54,11 +57,9 @@ isValueExists(null); // => false
 
 /* Task 4 */
 function callWithFunctionResult(funct1, funct2) {
-  // TODO: implement function
+  return funct1(funct2());
 }
 
-// Expected result
-// => doubleValue was called with value returned by getFour, => 2 * 4 = 8
 function doubleValue(value) {
   return value * 2;
 }
@@ -70,20 +71,22 @@ callWithFunctionResult(doubleValue, getFour);
 
 /* Task 5 */
 function callWhileStringIsNotEmpty(string, func) {
-  // TODO: implement function, recursion should be used
+  if (typeof string !== "string") return null;
+  if (string.length === 1) return func(string);
+  func(string);
+  return callWhileStringIsNotEmpty(string.slice(0, -1), func);
 }
 
-// Expected result
 function consoleLog(value) {
   console.log(value);
 }
 
 callWhileStringIsNotEmpty("qwerty", consoleLog);
-/* Result:
-    qwerty
-    qwert
-    qwer
-    qwe
-    qw
-    q
-  */
+
+module.exports = {
+  summ,
+  summAdvanced,
+  isValueExists,
+  callWithFunctionResult,
+  callWhileStringIsNotEmpty,
+};
