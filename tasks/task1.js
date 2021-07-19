@@ -1,11 +1,14 @@
 /* Task 1 */
 function summ(...args) {
+  if (args === undefined) return false;
   let sum = 0;
+
   args.forEach((el) => {
     if (!Number.isNaN(+el) && typeof el !== "boolean") {
       sum += +el;
     }
   });
+
   return sum;
 }
 
@@ -25,7 +28,9 @@ function getTenString() {
 }
 
 function summAdvanced(...args) {
+  if (args === undefined) return false;
   let sum = 0;
+
   args.forEach((el) => {
     if (typeof el === "function" && +el()) {
       sum += +el();
@@ -33,6 +38,7 @@ function summAdvanced(...args) {
       sum += +el;
     }
   });
+
   return sum;
 }
 
@@ -43,6 +49,7 @@ function isValueExists(value) {
   if (value === undefined || value === null) {
     return false;
   }
+
   return true;
 }
 
@@ -57,6 +64,8 @@ isValueExists(null); // => false
 
 /* Task 4 */
 function callWithFunctionResult(funct1, funct2) {
+  if (funct1 === undefined || funct2 === undefined) return false;
+
   return funct1(funct2());
 }
 
@@ -71,8 +80,12 @@ callWithFunctionResult(doubleValue, getFour);
 
 /* Task 5 */
 function callWhileStringIsNotEmpty(string, func) {
+  if (string === undefined || func === undefined) return false;
+
   if (typeof string !== "string") return null;
+
   if (string.length === 1) return func(string);
+
   func(string);
   return callWhileStringIsNotEmpty(string.slice(0, -1), func);
 }
