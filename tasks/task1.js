@@ -63,10 +63,10 @@ isValueExists(null); // => false
 /* Task 4 */
 function callWithFunctionResult(funct1, funct2) {
   if (
-    funct1 === undefined
-    || funct2 === undefined
-    || funct1 === null
-    || funct2 === null
+    funct1 === undefined ||
+    funct2 === undefined ||
+    funct1 === null ||
+    funct2 === null
   ) {
     return false;
   }
@@ -86,15 +86,15 @@ callWithFunctionResult(doubleValue, getFour);
 /* Task 5 */
 function callWhileStringIsNotEmpty(string, func) {
   if (
-    string === undefined
-    || func === undefined
-    || string === null
-    || func === null
+    string === undefined ||
+    func === undefined ||
+    string === null ||
+    func === null
   ) {
     return false;
   }
 
-  if (typeof string !== "string") return null;
+  if (typeof string !== "string") return false;
 
   if (string.length === 1) return func(string);
 
