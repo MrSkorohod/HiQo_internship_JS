@@ -1,6 +1,6 @@
 /* Task 1 */
 function summ(...args) {
-  if (args === undefined) return false;
+  if (args === undefined || args === null) return false;
   let sum = 0;
 
   args.forEach((el) => {
@@ -28,7 +28,7 @@ function getTenString() {
 }
 
 function summAdvanced(...args) {
-  if (args === undefined) return false;
+  if (args === undefined || args === null) return false;
   let sum = 0;
 
   args.forEach((el) => {
@@ -64,7 +64,9 @@ isValueExists(null); // => false
 
 /* Task 4 */
 function callWithFunctionResult(funct1, funct2) {
-  if (funct1 === undefined || funct2 === undefined) return false;
+  if (funct1 === undefined || funct2 === undefined || funct1 === null || funct2 === null) {
+    return false;
+  } 
 
   return funct1(funct2());
 }
@@ -80,7 +82,9 @@ callWithFunctionResult(doubleValue, getFour);
 
 /* Task 5 */
 function callWhileStringIsNotEmpty(string, func) {
-  if (string === undefined || func === undefined) return false;
+  if (string === undefined || func === undefined || string === null || func === null) {
+    return false;
+  }
 
   if (typeof string !== "string") return null;
 
