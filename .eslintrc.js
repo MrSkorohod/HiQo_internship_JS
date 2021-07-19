@@ -13,7 +13,6 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    "no-unused-vars": "off",
     semi: ['error', 'always'],
     quotes: ['error', 'double'],
   },

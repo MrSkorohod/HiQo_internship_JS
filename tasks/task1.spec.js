@@ -2,7 +2,6 @@ describe("Task 1.", () => {
   const task1 = require("./task1.js");
 
   describe("1 summ", () => {
-
     it("should calculate sum only for number values and ignore string values", () => {
       const result = task1.summ(1, "2", "3", 5, "abc");
       const expectedResult = 11;
@@ -23,7 +22,6 @@ describe("Task 1.", () => {
   });
 
   describe("2 summAdvanced", () => {
-
     it("should calculate advanced sum only for number values", () => {
       const randomNumber = Math.random();
       const getRandomNumber = () => randomNumber;
@@ -66,7 +64,6 @@ describe("Task 1.", () => {
   });
 
   describe("3 isValueExists", () => {
-
     it("should return true for a number", () => {
       const result = task1.isValueExists(1);
       expect(result).toBe(true);
