@@ -78,8 +78,6 @@ function uniq() {
 // Expected result
 uniq([2, 1, 2, 5, 6, 5, 7]); // => [2, 1, 5, 6, 7]
 
-
-
 /* Task 7 */
 function every() {
 	// TODO: implement function
