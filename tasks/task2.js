@@ -32,20 +32,18 @@ function difference(arr1, arr2) {
 /* Task 3 */
 function findIndex(arr, searchParam) {
   if (
-    arr === null ||
-    arr === undefined ||
-    searchParam === null ||
-    searchParam === undefined
-  )
-    return undefined;
+    arr === null
+    || arr === undefined
+    || searchParam === null
+    || searchParam === undefined
+  ) { return undefined; }
 
   if (
-    !Array.isArray(arr) ||
-    (typeof searchParam !== "number" &&
-      typeof searchParam !== "string" &&
-      typeof searchParam !== "function")
-  )
-    return "Invalid arguments";
+    !Array.isArray(arr)
+    || (typeof searchParam !== "number"
+      && typeof searchParam !== "string"
+      && typeof searchParam !== "function")
+  ) { return "Invalid arguments"; }
 
   if (typeof searchParam === "number" || typeof searchParam === "string") {
     return arr.indexOf(searchParam);
@@ -86,24 +84,21 @@ function uniq(arr) {
 
 /* Task 7 */
 function every(arr, func) {
-  if (!Array.isArray(arr) || arr.length === 0 || typeof func !== "function")
-    return false;
+  if (!Array.isArray(arr) || arr.length === 0 || typeof func !== "function") { return false; }
 
   return arr.every(func);
 }
 
 /* Task 8 */
 function find(arr, func) {
-  if (!Array.isArray(arr) || arr.length === 0 || typeof func !== "function")
-    return null;
+  if (!Array.isArray(arr) || arr.length === 0 || typeof func !== "function") { return null; }
 
   return arr.find(func);
 }
 
 /* Task 9 */
 function groupBy(arr, func) {
-  if (!Array.isArray(arr) || arr.length === 0 || typeof func !== "function")
-    return {};
+  if (!Array.isArray(arr) || arr.length === 0 || typeof func !== "function") { return {}; }
 
   return arr.reduce((acc, el) => {
     if (acc[func(el)]) {
@@ -119,12 +114,11 @@ function groupBy(arr, func) {
 /* Task 10 */
 function isEqual(obj1, obj2) {
   if (
-    obj1 === null ||
-    obj2 === null ||
-    obj1 === undefined ||
-    obj2 === undefined
-  )
-    return false;
+    obj1 === null
+    || obj2 === null
+    || obj1 === undefined
+    || obj2 === undefined
+  ) { return false; }
 
   const arrKeys = Object.keys(obj1);
 
