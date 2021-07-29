@@ -11,49 +11,47 @@ function createObject(obj) {
 
 /* Task 2 */
 function Collection(constructor) {
-  this.constructor = constructor;
-  this.base = [];
+  this.list = [];
 
   this.readAll = function () {
-    return this.base;
+    return this.list;
   };
 
   this.add = function (...args) {
-    this.base.push(new constructor(...args));
+    this.list.push(new constructor(...args));
   };
 
   this.get = function (fn) {
-    this.item = this.base.find(fn);
+    const item = this.list.find(fn);
+    const self = this;
 
-    this.item.update = function (func) {
-      func(Object.seal(this));
-      return this;
+    return {
+      update(cb) {
+        cb(Object.seal(item));
+        return this;
+      },
+      read() {
+        return item;
+      },
+      remove() {
+        self.list.splice(self.list.indexOf(item), 1);
+        return item;
+      },
     };
-
-    this.item.read = function () {
-      return this;
-    };
-
-    this.item.remove = () => {
-      this.base.splice(this.base.indexOf(this.item), 1);
-      return this.item;
-    };
-
-    return this.item;
   };
 
   this.getBy = function (fn) {
-    this.items = this.base.filter(fn);
+    const items = this.list.filter(fn);
 
-    this.items.update = function (func) {
-      this.map((...args) => func(...args));
-      return this;
+    return {
+      update(cb) {
+        items.map((...args) => cb(...args));
+        return this;
+      },
+      read() {
+        return items;
+      },
     };
-
-    this.items.read = function () {
-      return this;
-    };
-    return this.items;
   };
 }
 
