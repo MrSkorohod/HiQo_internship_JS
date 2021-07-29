@@ -36,14 +36,18 @@ function findIndex(arr, searchParam) {
     || arr === undefined
     || searchParam === null
     || searchParam === undefined
-  ) { return undefined; }
+  ) {
+    return undefined;
+  }
 
   if (
     !Array.isArray(arr)
     || (typeof searchParam !== "number"
       && typeof searchParam !== "string"
       && typeof searchParam !== "function")
-  ) { return "Invalid arguments"; }
+  ) {
+    return "Invalid arguments";
+  }
 
   if (typeof searchParam === "number" || typeof searchParam === "string") {
     return arr.indexOf(searchParam);
@@ -84,21 +88,27 @@ function uniq(arr) {
 
 /* Task 7 */
 function every(arr, func) {
-  if (!Array.isArray(arr) || arr.length === 0 || typeof func !== "function") { return false; }
+  if (!Array.isArray(arr) || arr.length === 0 || typeof func !== "function") {
+    return false;
+  }
 
   return arr.every(func);
 }
 
 /* Task 8 */
 function find(arr, func) {
-  if (!Array.isArray(arr) || arr.length === 0 || typeof func !== "function") { return null; }
+  if (!Array.isArray(arr) || arr.length === 0 || typeof func !== "function") {
+    return null;
+  }
 
   return arr.find(func);
 }
 
 /* Task 9 */
 function groupBy(arr, func) {
-  if (!Array.isArray(arr) || arr.length === 0 || typeof func !== "function") { return {}; }
+  if (!Array.isArray(arr) || arr.length === 0 || typeof func !== "function") {
+    return {};
+  }
 
   return arr.reduce((acc, el) => {
     if (acc[func(el)]) {
@@ -118,7 +128,9 @@ function isEqual(obj1, obj2) {
     || obj2 === null
     || obj1 === undefined
     || obj2 === undefined
-  ) { return false; }
+  ) {
+    return false;
+  }
 
   const arrKeys = Object.keys(obj1);
 
