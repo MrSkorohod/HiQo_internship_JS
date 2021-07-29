@@ -21,6 +21,15 @@ function Collection(constructor) {
     this.list.push(new constructor(...args));
   };
 
+  this.remove = function (idx) {
+    this.list.splice(this.list(idx), 1);
+  };
+
+  this.update = function (cb) {
+    this.list.map((el) => cb(el));
+    return this.list;
+  };
+
   this.get = function (fn) {
     const item = this.list.find(fn);
     const self = this;
